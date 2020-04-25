@@ -8,7 +8,7 @@
 
 Matrix::Matrix()
 {
-	load();
+
 }
 
 int Matrix::strNumbers()

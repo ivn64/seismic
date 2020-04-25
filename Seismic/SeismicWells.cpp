@@ -2,6 +2,11 @@
 
 #include <cassert>
 
+SeismicWells::SeismicWells(Matrix m)
+{
+	m_measurementsTable = m;
+}
+
 int SeismicWells::measurementsNumbers()
 {
 	return m_measurementsTable.strNumbers();

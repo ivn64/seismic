@@ -6,6 +6,7 @@
 class SeismicWells
 {
 public:
+	SeismicWells(Matrix m);
 	int measurementsNumbers();
 	double r(int col1, int col2);
 
