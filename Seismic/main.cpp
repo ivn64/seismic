@@ -88,8 +88,20 @@ int main()
 
     std::cout << r << std::endl;
     Matrix m;
+    auto t6 = m.colNumbers();
     SeismicWells seismic;
-    auto r1 = seismic.r();
+    auto r0 = seismic.r(0, 1);
+
+    for (int col1 = 0; col1 < t6 - 1; col1++)
+    {
+        int col2 = col1 + 1;
+        while (col2 < t6)
+        {
+            auto t7 = seismic.r(col1, col2);
+            col2++;
+            int rr = 0;
+        }
+    }
 
     return 0;
 }

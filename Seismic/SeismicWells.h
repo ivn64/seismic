@@ -7,7 +7,7 @@ class SeismicWells
 {
 public:
 	int measurementsNumbers();
-	double r();
+	double r(int col1, int col2);
 
 private:
 	double sum(int col1, int col2);
