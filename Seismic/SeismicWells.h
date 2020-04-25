@@ -10,7 +10,7 @@ public:
 	double r();
 
 private:
-
+	double sum(int col1, int col2);
 
 private:
 	std::list <int> m_excludedMeasurements;

@@ -6,6 +6,8 @@ class Matrix
 public:
 	Matrix();
 	int strNumbers();
+	int colNumbers();
+	double value(int str, int col);
 
 private:
 	void load();

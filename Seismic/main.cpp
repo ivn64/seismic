@@ -89,6 +89,7 @@ int main()
     std::cout << r << std::endl;
     Matrix m;
     SeismicWells seismic;
+    auto r1 = seismic.r();
 
     return 0;
 }
