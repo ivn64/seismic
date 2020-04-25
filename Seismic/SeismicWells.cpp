@@ -9,11 +9,17 @@ int SeismicWells::measurementsNumbers()
 
 double SeismicWells::r()
 {
-	auto t1 = sum(0, 1);
-	auto t2 = sum(0, 0);
-	auto t3 = sum(0, -1);
+	auto strNumbers = m_measurementsTable.strNumbers();
+	auto s12 = sum(0, 1);
+	auto s1 = sum(0, -1);
+	auto s2 = sum(1, -1);
+	auto s11 = sum(0, 0);
+	auto s22 = sum(1, 1);
 
-	return 0.0;
+	auto r1 = (strNumbers * s12 - s1 * s2)
+		/ (sqrt(strNumbers * s11 - s1 * s1) * sqrt(strNumbers * s22 - s2 * s2));
+
+	return r1;
 }
 
 double SeismicWells::sum(int col1, int col2)
