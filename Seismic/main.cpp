@@ -14,6 +14,9 @@ int main()
     std::vector<std::thread> threads;
 
     auto colNumbers = m.colNumbers();
+    auto strNumbers = m.strNumbers();
+
+
     for (int col1 = 0; col1 < colNumbers - 1; col1++)
     {
         int col2 = col1 + 1;
@@ -21,7 +24,7 @@ int main()
         {
             double * r = new double();
             rList.push_back(r);
-            threads.push_back(std::thread(&SeismicWells::r, &seismic, col1, col2, r));
+            threads.push_back(std::thread(&SeismicWells::r, &seismic, col1, col2, 0, r));
             col2++;
         }
     }

@@ -8,10 +8,10 @@ class SeismicWells
 public:
 	SeismicWells(Matrix m);
 	int measurementsNumbers();
-	void r(int col1, int col2, double * r);
+	void r(int col1, int col2, int excludedStr, double* r);
 
 private:
-	double sum(int col1, int col2);
+	double sum(int col1, int col2, int excludedStr);
 
 private:
 	std::list <int> m_excludedMeasurements;
