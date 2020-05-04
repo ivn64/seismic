@@ -12,7 +12,7 @@ int SeismicWells::measurementsNumbers()
 	return m_measurementsTable.strNumbers();
 }
 
-double SeismicWells::r(int col1, int col2)
+void SeismicWells::r(int col1, int col2, double & r)
 {
 	auto strNumbers = m_measurementsTable.strNumbers();
 	auto s12 = sum(col1, col2);
@@ -21,17 +21,15 @@ double SeismicWells::r(int col1, int col2)
 	auto s11 = sum(col1, col1);
 	auto s22 = sum(col2, col2);
 
-	auto r1 = (strNumbers * s12 - s1 * s2)
-		/ (sqrt(strNumbers * s11 - s1 * s1) * sqrt(strNumbers * s22 - s2 * s2));
-
-	return r1;
+	r = (strNumbers * s12 - s1 * s2)
+	  / (sqrt(strNumbers * s11 - s1 * s1) * sqrt(strNumbers * s22 - s2 * s2));
 }
 
 double SeismicWells::sum(int col1, int col2)
 {
 	auto colNumbers = m_measurementsTable.colNumbers();
 	assert(col1 < colNumbers && col2 < colNumbers);
-	
+
 	double sum = 0;
 	if (col2 == -1)
 		for (size_t i = 0; i < m_measurementsTable.strNumbers(); i++)

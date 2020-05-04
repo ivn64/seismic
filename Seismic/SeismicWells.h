@@ -8,7 +8,7 @@ class SeismicWells
 public:
 	SeismicWells(Matrix m);
 	int measurementsNumbers();
-	double r(int col1, int col2);
+	void r(int col1, int col2, double& r);
 
 private:
 	double sum(int col1, int col2);
