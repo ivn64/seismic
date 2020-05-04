@@ -10,7 +10,7 @@ int main()
     m.load();
     SeismicWells seismic(m);
 
-    std::vector<double> rList;
+    std::vector<double *> rList;
     std::vector<std::thread> threads;
 
     auto colNumbers = m.colNumbers();
@@ -19,9 +19,9 @@ int main()
         int col2 = col1 + 1;
         while (col2 < colNumbers)
         {
-            double r = 0;
+            double * r = new double();
             rList.push_back(r);
-            threads.push_back(std::thread(&SeismicWells::r, &seismic, col1, col2, std::ref(r)));
+            threads.push_back(std::thread(&SeismicWells::r, &seismic, col1, col2, r));
             col2++;
         }
     }
@@ -31,6 +31,9 @@ int main()
         if (t.joinable())
             t.join();
     }
+
+    for (auto & r : rList)
+        delete r;
 
     return 0;
 }
